@@ -16,4 +16,4 @@ while True:
          (user_choice == "scissors" and computer_choice == "paper"):
         print("You win!")
     else:
-        print("You lose!")
+        print("Thank you")
