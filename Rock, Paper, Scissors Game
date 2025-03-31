@@ -1,9 +1,15 @@
 import random
 
-choices = ["rock", "paper", "scissors"]
+def get_user_choice():
+    print("Choose Rock, Paper, or Scissors:")
+    user_input = input().lower()
+    while user_input not in ["rock", "paper", "scissors"]:
+        print("Invalid choice. Please choose Rock, Paper, or Scissors:")
+        user_input = input().lower()
+    return user_input
 
 def get_computer_choice():
-    return random.choice(choices)
+    return random.choice(["rock", "paper", "scissors"])
 
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
@@ -15,22 +21,20 @@ def determine_winner(user_choice, computer_choice):
     else:
         return "Computer wins!"
 
-def main():
+def play_game():
+    print("Welcome to Rock-Paper-Scissors!")
     while True:
-        user_choice = input("Enter rock, paper, or scissors (or 'quit' to exit): ").lower()
-        
-        if user_choice == "quit":
-            break
-        
-        if user_choice not in choices:
-            print("Invalid choice. Please try again.")
-            continue
-
+        user_choice = get_user_choice()
         computer_choice = get_computer_choice()
-        print(f"Computer chose: {computer_choice}")
-        
+        print(f"You chose {user_choice}.")
+        print(f"Computer chose {computer_choice}.")
         result = determine_winner(user_choice, computer_choice)
         print(result)
+        
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again != "yes":
+            print("Thanks for playing! Goodbye!")
+            break
 
 if __name__ == "__main__":
-    main()
+    play_game()
