@@ -5,7 +5,7 @@ def play():
     user_choice = input("Enter rock, paper, or scissors: ").lower()
     
     if user_choice not in choices:
-        print("Invalid choice, try again.")
+        print("Choice are not avaliable")
         return
     
     computer_choice = random.choice(choices)
